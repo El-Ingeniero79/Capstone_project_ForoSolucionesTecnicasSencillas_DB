@@ -19,7 +19,7 @@ load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '..', '.env'))
 def create_app():
     app = Flask(__name__)
     
-    CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
+    CORS(app, resources={r"/*": {"origins": 'https://f-sol-tec-sencillas-65eb256e7844.herokuapp.com'}})
     
     app.config.from_object(Config)
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
