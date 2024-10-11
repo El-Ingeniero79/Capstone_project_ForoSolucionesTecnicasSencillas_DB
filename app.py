@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from flask_socketio import SocketIO
 from config import Config
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager, jwt_required, create_access_token, get_jwt_identity
@@ -20,6 +19,7 @@ load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '..', '.env'))
 def create_app():
     app = Flask(__name__)
     
+    # Permitir solicitudes solo desde la URL del frontend
     CORS(app, resources={r"/*": {"origins": 'https://f-sol-tec-sencillas-65eb256e7844.herokuapp.com'}})
     
     app.config.from_object(Config)
@@ -34,16 +34,13 @@ def create_app():
     app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
     JWTManager(app)
 
-    # Inicializa SocketIO
-    socketio = SocketIO(app)
-
     # Registro de blueprints
     app.register_blueprint(auth_bp)
     app.register_blueprint(posts_bp)
 
-    return app, socketio
+    return app
 
-app, socketio = create_app()
+app = create_app()
 
 @app.route('/protected', methods=['GET'])
 @jwt_required()
@@ -51,11 +48,5 @@ def protected():
     current_user = get_jwt_identity()
     return jsonify({'message': f'Autenticado como el usuario {current_user}'}), 200
 
-# Evento de WebSocket
-@socketio.on('message')
-def handle_message(msg):
-    logger.info(f'Received message: {msg}')
-    socketio.send(msg)  # Enviar el mismo mensaje de vuelta, por ejemplo
-
 if __name__ == '__main__':
-    socketio.run(app)
+    app.run()
