@@ -1,4 +1,8 @@
-# Foro de Soluciones Tecnicas Sencillas
+# Foro de Soluciones Tecnicas Sencillas DB
+
+este repositorio es el backend del Foro de Soluciones Tecnicas Sencillas.
+
+copio a continuacion la explicacion del frontEnd y como el usuario interactuaria.
 
 este foro esta creado para que personas profesionales o expertos en materias puedan explicar de forma sencilla tecnicas o teorias complejas.
 
@@ -13,13 +17,12 @@ El foro consta de varias secciones o pestañas:
 La ultima pestaña publica es para registrarte, **register**, en ella te podras registrar con un email, una contraseña de mas de 8 caracteres y un nick de mas de 3 caracteres (solo numeros y/o letras).
 
 Una vez que te registras y haces log In, en la barra de navegacion te saldran nuevas opciones:
-    - **profile**: en esta pestaña podras ver con que email estas registrado, que nick tienes y un resumen de todos los posts que has escrito. Si pinchas en cada uno podras ver el contenido completo y editarlos o borrarlos.
+**profile**: en esta pestaña podras ver con que email estas registrado, que nick tienes y un resumen de todos los posts que has escrito. Si pinchas en cada uno podras ver el contenido completo y editarlos o borrarlos.
 
-     -**Create Post** , aqui podras crear el post, debes introducir un titulo y luego todo el contenido que consideres interesante, ademas podras declarar el post publico o restringido. si lo declaras restringido solo personas registradas y logueadas podras leer su contenido.
+**Create Post** , aqui podras crear el post, debes introducir un titulo y luego todo el contenido que consideres interesante, ademas podras declarar el post publico o restringido. si lo declaras restringido solo personas registradas y logueadas podras leer su contenido.
+**logout** cerrar sesion.
 
-    - **logout** cerrar sesion.
-
-    Espero que disfrutes y aprendas mucho en este foro, en el corto plazo añadire mas opciones y funcionalidades para hacerlo mas atractivo.
+Espero que disfrutes y aprendas mucho en este foro, en el corto plazo añadire mas opciones y funcionalidades para hacerlo mas atractivo.
 
     Un saludo!!!
     
